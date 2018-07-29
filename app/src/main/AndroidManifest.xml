@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ausrine.bookiventoryapp">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,14 +20,28 @@
         </activity>
 
         <activity
-            android:name=".AddActivity"
-            android:label="@string/add_product"
+            android:name=".EditorActivity"
+            android:label="@string/edit_product"
             android:parentActivityName=".InventoryActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".InventoryActivity" />
         </activity>
+
+        <activity
+            android:name=".ViewActivity"
+            android:label="@string/product_view"
+            android:parentActivityName=".InventoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".InventoryActivity" />
+        </activity>
+
+        <provider
+            android:name=".data.InventoryProvider"
+            android:authorities="com.example.ausrine.bookiventoryapp"
+            android:exported="false" />
     </application>
 
 </manifest>
